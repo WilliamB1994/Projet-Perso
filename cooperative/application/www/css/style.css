@@ -1,0 +1,630 @@
+/*------------------------------------
+				Global
+-------------------------------------*/
+
+/*div, header, section, article, aside, nav {
+		border: 1px dashed rgba(0,0,0,0.15);
+		background-color: rgba(0,0,0,0.05);
+	}
+
+	.clear {
+		border: 1px dashed red;
+	}
+*/
+* {
+	box-sizing: border-box;
+	outline: none;
+	text-decoration: none;
+	transition: all .2s ease 0s;
+}
+
+*:hover {
+	transition: all .2s ease 0s;
+}
+
+@font-face {
+	font-family: "Century Gothic";
+	src: url("../fonts/Century Gothic.ttf");
+}
+
+
+html {font-size: 62.5%}
+
+body {
+	font-family: "Open Sans", Century Gothic, sans-serif;
+	font-size: 1.6rem;
+	background-image: url("../img/bg.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment:fixed;
+	background-size: cover;
+	margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: rgba(0,0,0,0.5);
+}
+
+/*-------------------------------------*/
+a, a:hover, a:visited, a:active {
+	text-decoration: none;
+	color: white;
+}
+a:hover {
+	color: #B09067;
+}
+a:visited {
+	color: white;
+}
+
+/*-------------------------------------*/
+
+ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+/*------------------------------------
+				Titres
+-------------------------------------*/
+header h1  {
+	font-size: 3.3rem;
+	line-height: 3.8rem;
+
+}
+header h1 span {
+	font-size: 5rem;
+}
+main h1 {
+	font-family: "Century Gothic";
+	font-weight: normal;
+	font-size: 4rem;
+}
+main h2 {
+	font-family: "Century Gothic";
+	font-weight: normal;
+	font-size: 2.5rem;
+}
+
+main h3 {
+	font-family: "Century Gothic";
+	font-weight: normal;
+	font-size: 2rem;
+	margin: 0;
+}
+/*------------------------------------
+				Classes
+--------------------------------------
+
+ Classe générales : 
+
+	- .container gérer le contenu principale
+ 	- .btn les boutons
+ 	- .price affichage des prix
+
+------------------------------------*/
+.container {
+	max-width: 1100px;
+	margin: 0 auto;
+}
+
+.btn {
+	background-color: #B09067;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	padding: 15px 20px;
+	margin: 10px 0;
+	text-align: center;
+}
+
+.btn:hover {
+	background-color: rgba(176,144,103,0.75);
+}
+/*-----------------------------------*/
+.price strong {
+	font-family: "Century Gothic";
+	display: block;
+	font-size: 2.4rem;
+	font-weight: normal;
+}
+
+.price h3 {
+	font-family: "Century Gothic";
+	font-weight: normal;
+	font-size: 4rem;
+	margin-top: 0;
+}
+
+.price a {
+	display: block;
+}
+
+
+/*------------------------------------
+				HEADER
+-------------------------------------*/
+
+header {
+	background-color: #AD9B81;
+	color: black;
+}
+/*------------------------------------
+			Section Logo
+-------------------------------------*/
+#logo {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;	
+	padding-top : 15px;
+}
+
+#logo img {
+	width: 33%;
+	float: left;
+	padding-right: 2rem;
+	margin-bottom: 2rem;
+}
+#logo img,h1{
+	vertical-align: baseline;
+}
+
+/***********************************
+			Menu Déroulent
+***********************************/
+
+#controlNav{
+	background-color: #AD9B81;
+	padding-right: 0px;
+	color: black;
+}
+#controlNav a {
+	color: black;
+}
+
+nav > ul > li {
+	display: block;
+}
+
+nav > ul > li > a:hover {
+	color: white;
+}
+nav .menu {
+	display: none;
+	position: absolute;
+	text-transform: none;
+	font-size: 1.5rem;
+	background-color: rgba(255, 255, 255, .1);
+}
+
+nav ul li:hover .menu {
+	display: block;
+}
+
+/**************************************************************/
+
+/***********************************
+			Navigation
+***********************************/
+
+nav {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+	padding: 0 240px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	background-color: #CAB395;
+
+}
+
+nav a {
+	color: black;
+	padding: 5px 15px;
+	text-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+nav a:hover {
+	background-color: rgba(255, 255, 255, 0.2);
+	color: black;
+}
+
+/*------------------------------------
+				MAIN
+-------------------------------------
+
+Principales classes :
+	- .presentation HistoryView, AuthorView.phtml
+	- .space espace séparent les blocs
+	- .product Presentation des produit HomeView.phtml
+	- .prdctcategorie presentation categorie ProductView.phtml
+	- .listing-product presentation categorie ProductView.phtml
+
+------------------------------------*/
+.presentation {
+	padding: 25px;
+	color: white;
+	display: block;
+}
+.presentation article:nth-of-type(even) img {
+	float: left; 
+	width: 500px;
+	height: 234px;
+	padding-right: 10px;
+}
+.presentation article:nth-of-type(odd) img {
+	float: right; 
+	width: 500px;
+	height: 234px;
+	padding-left: 10px;
+}
+/*------------------------------------*/
+.space{
+	padding: 25px;
+}
+
+/*------------------------------------*/
+
+.product  {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: justify;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+	text-align: center;
+	color: white;
+}
+
+.product article {
+	margin: 0 10px;
+}
+
+/*------------------------------------*/
+
+.prdctcategorie {
+	padding: 25px;
+	margin: 25px 0;
+	color: white;
+}
+
+.prdctcategorie > img {
+	float: left;
+	margin: 25px 10px 0 0;
+}
+/*------------------------------------*/
+
+.listing-product {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	text-align: center;
+	color: white;
+}
+
+.listing-product img {
+	width: 225px;
+	height: 225px;
+	margin: 0 auto;
+}
+
+/*------------------------------------
+
+Les Id :
+	- #categorie haute de la HomeView (categories de produit)
+	- #new bas de la HomeView (les produits mis en avant)
+	- #column bas de la page HistoryView
+
+-------------------------------------*/
+
+#categorie {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap;
+	    flex-wrap: wrap;
+	-webkit-box-pack: justify;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+	text-align: center;
+	color: white;
+}
+
+#categorie h2, .product h2 {
+	-ms-flex-preferred-size: 100%;
+	    flex-basis: 100%;
+}
+
+#categorie:hover > a {
+	-webkit-transition: all 0.2s ease 0s;
+	transition: all 0.2s ease 0s;
+	opacity: 0.5;
+}
+
+#categorie:hover > a:hover {
+	-webkit-transition: all 0.2s ease 0s;
+	transition: all 0.2s ease 0s;
+	opacity: 1;
+}
+
+#categorie, #new {
+	margin: 25px 0;
+	padding: 15px;
+}
+
+#new img {
+	height: 225px;
+	width: 225px;
+}
+
+/*------------------------------------*/
+
+#column {
+	-webkit-columns: 3 300px;
+	   -moz-columns: 3 300px;
+	        columns: 3 300px;
+	text-align: center;
+	padding: 25px;
+	background-color: rgba(255, 255, 255, .3);
+}
+
+#column img {
+	margin-top: 25px;
+	width: 100px;
+}
+
+#column p {
+	padding: 10px;
+}
+/*----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#product {
+	color: white;
+	padding: 25px;
+}
+
+#product-detail {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: justify;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+}
+
+#product-detail h1 {
+	margin: 0;
+	font-size: 3rem;
+}
+
+#product-detail h2 {
+	margin: 0;
+	color: #999;
+}
+
+#product-detail h2::after {
+	display: none;
+}
+
+#product-detail p {
+	font-style: italic;
+}
+
+#rating {
+	text-align: right;
+	color: #999;
+	font-size: 2.5rem;
+}
+
+#rating a {
+	display: block;
+	font-size: 1.6rem;
+}
+
+.gold {
+	color: #FFDC0F;
+}
+
+.price h3 {
+	font-family: "Amaranth";
+	font-weight: normal;
+	font-size: 4rem;
+	margin-top: 0;
+}
+
+.price a {
+	display: block;
+}
+
+#product-quantity {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: justify;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	text-align: right;
+}
+
+#product-quantity select {
+	width: 300px;
+	padding: 5px;
+}
+#product-quantity img {
+	width: 500px;
+    height: 234px;
+}
+
+#wishlist::before {
+	content: "\F004";
+	font-family: "FontAwesome";
+	margin: 5px;
+	color: #E7877A;
+}
+/*----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*------------------------------------
+				FOOTER
+-------------------------------------*/
+
+footer {
+	margin-top: 50px;
+	background-color: #AD9B81;
+	color: white;
+}
+
+/*------------------------------------
+
+Les Id :
+	- #info nav footer 
+	- #new bas de la HomeView (les produits mis en avant)
+	- #column bas de la page HistoryView
+
+-------------------------------------*/
+
+#info {
+	background-color: #A28F77;
+	color: rgba(255, 255, 255, 0.6);
+	text-transform: uppercase;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-pack: distribute;
+	    justify-content: space-around;
+	-ms-flex-wrap: wrap;
+	    flex-wrap: wrap;
+	padding: 25px;
+}
+
+#info article {
+	cursor: pointer;
+	-webkit-transition: all 0.2s ease 0s;
+	transition: all 0.2s ease 0s;
+}
+
+#info article:hover {
+	color: white;
+	-webkit-transition: all 0.2s ease 0s;
+	transition: all 0.2s ease 0s;
+}
+
+#info i {
+	display: block;
+	text-align: center;
+	font-size: 2em;
+	padding-bottom: 5px;
+}
+/*-------------------------------------*/
+#licence {
+	text-align: center;
+	background-color: rgba(0,0,0,0.1);
+	padding: 25px;
+	color: white;
+	margin: 0px;
+}
+
+@media screen and (max-width: 1024px) {
+	.ribbon {
+		width: 80px;
+	}
+
+	header .container{
+		padding: 0 25px;
+	}
+
+	#categorie a {
+		-ms-flex-preferred-size: 50%;
+		    flex-basis: 50%;
+		margin: 0 auto;
+	}
+
+	.product, .listing-product {
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		    -ms-flex-direction: column;
+		        flex-direction: column;
+	}
+
+	.listing-product img, .product-quantity img {
+		width: 50%;
+	}
+
+	.product > img {
+		display: none;
+	}
+
+	#column {
+		-webkit-column-count: 1;
+		-moz-column-count: 1;
+		column-count: 1;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	#cart {
+		text-align: center;
+		margin-top: 25px;
+		padding: 10px 15px 10px 5px;
+		position: fixed;
+		left: 0;
+		top: 25px;
+		z-index: 10000;
+		background-color: #96B011;
+		border-radius: 0 50px 50px 0;
+		-webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+		        box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+	}
+
+	#cart span {
+		display: none;
+	}
+
+	#cart strong::before {
+		font-size: 1.6rem;
+	}
+
+	#cart strong {
+		font-size: 1.4rem;
+	}
+
+	#logo {
+		margin-top: 75px;
+	}
+
+	#logo, header nav, #bottombar, .product-detail, .product-quantity {
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		    -ms-flex-direction: column;
+		        flex-direction: column;
+		text-align: center;
+	}
+
+	.ribbon, #cart p::before, #noel, #slider {
+		display: none;
+	}
+
+	.listing-product img, .product-quantity img {
+		width: inherit;
+	}
+
+	#rating {
+		text-align: center;
+		margin-bottom: 25px;
+	}
+
+	.left, .right {
+		float: none;
+		margin: 25px 0 0;
+	}
+
+	#info article {
+		-ms-flex-preferred-size: 50%;
+		    flex-basis: 50%;
+		text-align: center;
+	}
+}

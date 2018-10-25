@@ -1,0 +1,46 @@
+<!--MAIN CONTENT-->
+<main class="container">
+	<section class="presentation">
+		<h1>Notre équipe</h1>
+		<?php foreach ($authors as $author): ?>
+			<article>
+
+				<h2><?= $author['firstname'] ?>, <?= $author['title'] ?> des petits glaneurs.</h2>
+
+				<!-- création de l'url du fichier -->
+				<?php $img_url = WWW_PATH . "/img/authorpic/" . $author['pictureUrl']; ?>
+
+				<!-- choix du nom de la photo // $variable = test ? value_true : value_false  -->
+				<?php $img_name = is_file($img_url) ? $author['pictureUrl'] : 'no-photo.png' ?>
+
+				<img src="<?= $wwwUrl ?>/img/authorpic/<?= $img_name ?>" alt="<?= $author['title'] ?>">
+
+				<p> <?= $author['contents'] ?></p>
+			</article>
+			<div class="space"></div>
+		<?php endforeach; ?>
+	</section>
+	<?php foreach ($articles as $article): ?>
+
+		<h1><?= $article['title'] ?></h1>
+
+		<p> <?= $article['contents'] ?></p>
+
+	<?php endforeach; ?>
+	<section id="column">
+		<?php foreach ($posts as $post): ?>
+
+			<!-- création de l'url du fichier -->
+			<?php $img_url = WWW_PATH . "/img/postpic/" . $post['pictureUrl']; ?>
+
+			<!-- choix du nom de la photo // $variable = test ? value_true : value_false  -->
+			<?php $img_name = is_file($img_url) ? $post['pictureUrl'] : 'no-photo.png' ?>
+
+			<img src="<?= $wwwUrl ?>/img/postpic/<?= $img_name ?>" alt="<?= $post['title'] ?>">
+			<h3><?= $post['title'] ?></h3>
+
+			<p> <?= $post['contents'] ?></p>
+
+		<?php endforeach; ?>
+	</section>
+</main>

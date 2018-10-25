@@ -1,0 +1,44 @@
+<!--MAIN CONTENT-->
+<main class="container">
+	<section id="categorie">
+		<h2>Les différentes categories</h2>
+			<?php foreach ($categorys as $category): ?>
+		<a href="#">
+				<!-- création de l'url du fichier -->
+				<?php $img_url = WWW_PATH . "/img/category/" . $category['pictureUrl']; ?>
+
+				<!-- choix du nom de la photo // $variable = test ? value_true : value_false  -->
+				<?php $img_name = is_file($img_url) ? $category['pictureUrl'] : 'no-photo.png' ?>
+
+				<figure>
+					<img src="<?= $wwwUrl ?>/img/category/<?= $img_name ?>" alt="<?= $category['name'] ?>">
+					<h3><?= $category['name'] ?></h3>
+				</figure>
+
+			</a>
+		<?php endforeach; ?>
+	</section>
+	<section class="product">
+		<?php foreach ($promos as $promo): ?>
+			<article id="new">
+				<h2><?= $promo['promodetails'] ?></h2>
+
+				<!-- création de l'url du fichier -->
+				<?php $img_url = WWW_PATH . "/img/product/" . $promo['pictureUrl']; ?>
+
+				<!-- choix du nom de la photo // $variable = test ? value_true : value_false  -->
+				<?php $img_name = is_file($img_url) ? $promo['pictureUrl'] : 'no-photo.png' ?>
+
+				<img src="<?= $wwwUrl ?>/img/product/<?= $img_name ?>" alt="<?= $promo['title'] ?>">
+				<h3><?= $promo['title'] ?></h3>
+				<p><?= $promo['description'] ?></p>
+
+				<section class="price">
+					<p>À partir de <strong><?= $promo['price'] ?> €</strong></p>
+				</section>
+
+				<a class="btn" href="Details?id=<?=$promo['id']; ?>">Voir ce produit</a>
+			</article>
+		<?php endforeach; ?>
+	</section>
+</main>

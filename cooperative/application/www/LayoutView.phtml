@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Coopérative des petits glaneurs.</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- FONT -->
+	<link rel="stylesheet" href="<?= $wwwUrl ?>/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="<?= $wwwUrl ?>/css/normalize.css">
+	<link rel="stylesheet" href="<?= $wwwUrl ?>/css/base.css">
+	<link rel="stylesheet" href="<?= $wwwUrl ?>/css/style.css">
+
+	<!-- JS -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+<body>
+	<!--HEADER-->
+	<header>
+		<div class="container">
+			<section id="logo">
+				<div>
+				<a href="<?= $requestUrl ?>">
+					<img src="<?= $wwwUrl ?>/img/logo.jpg" alt="petits glaneurs" /> 
+				</a>
+				<h1><span>Coopérative</span> <br/> des petits glaneurs.</h1>
+				</div>
+				<nav id="controlNav">
+					<ul>
+						<li>
+							<a href=""><i class="fas fa-language"></i></a>
+						</li>
+					</ul>
+					<?php if ($userSession->isLogged()): ?>
+						<ul>
+							<li>
+								<a href=""><?= $userSession->getFullName(); ?></a>
+								<div class="menu">
+									<ul>
+										<li><a href="<?= $requestUrl ?>/cart">Mon panier</a></li>
+										<li><a href="<?= $requestUrl ?>/user/logout">Déconection</a></li>
+									</ul>
+								</div>
+							</li>
+						</ul>
+						<?php else : ?>
+							<ul>
+								<li>
+
+									<a href="<?= $requestUrl ?>/user/login"><i class="fas fa-user-alt"></i></a>
+								</li>
+							</ul>
+						<?php endif ?>
+					</nav>
+				</section>
+			</div>
+			<nav>
+				<a href="<?= $requestUrl ?>">Accueil</a>
+				<a href="<?= $requestUrl ?>/history">Histoire</a>
+				<a href="<?= $requestUrl ?>/product">Magazin</a>
+			</nav>
+		</header>
+
+
+		<main>
+			<!-- Affichage du template lié à la vue -->
+			<?php include $this->viewData['template'] ?>
+		</main>
+
+		<!--FOOTER-->
+		<footer>
+			<section id="info">
+				<article>
+					<i class="fa fa-lock"></i>
+					<small>Paiement sécurisé</small>
+				</article>
+				<article>
+					<i class="fa fa-truck"></i>
+					<small>Ma livraison offerte</small>
+				</article>
+				<article>
+					<i class="fa fa-money"></i>
+					<small>Carte de fidélité</small>
+				</article>
+				<article>
+					<i class="fa fa-phone"></i>
+					<small>Service client</small>
+				</article>
+				<article>
+					<i class="fa fa-check-circle"></i>
+					<small>Garantie qualité</small>
+				</article>
+			</section>
+			<section id="licence">
+				<p>Copyright &copy; 2018 William Bruel.</p>
+			</section>
+		</footer>
+	</body>
+	</html>

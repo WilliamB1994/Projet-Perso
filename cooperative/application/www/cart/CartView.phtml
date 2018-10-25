@@ -1,0 +1,73 @@
+<main class="container">
+<table class="generic-table">
+    <thead>
+    <tr>
+        <th>Photo</th>
+        <th>Produit</th>
+        <th>Prix Unitaire</th>
+        <th>Quantité</th>
+        <th>Total</th>
+    </tr>
+    </thead>
+    <tfoot>
+    <tr>
+        <td colspan="3"></td>
+        <td><strong>Total : </strong></td>
+        <td id="totalPrice" class="price"><?= number_format($total_price, 2) ?> €</td>
+    </tr>
+    </tfoot>
+    <tbody>
+    <?php if (!empty($cart)): ?>
+        <?php foreach ($cart as $product_id => $product): ?>
+            <tr id="<?= $product_id ?>">
+                <td>
+                    <img width="50" src="<?= $wwwUrl ?>/img/product/<?= $product['pictureUrl'] ?>"
+                         alt="<?= $product['title'] ?>">
+                </td>
+                <td><strong><?= $product['title'] ?></strong></td>
+                <td><?= number_format($product['price'], 2) ?></td>
+                <td>
+                    <div class="flex-row">
+                        <a href="#" class="minusQuantity"><i class="fa fa-minus-circle"></i></a>
+                        <input class="quantity" data-maxQuantity="" value="<?= $product['quantity'] ?>">
+                        <a href="#" class="plusQuantity"><i class="fa fa-plus-circle"></i></a>
+                    </div>
+                </td>
+                <td class="price"><?= number_format($product['price'] * $product['quantity'], 2) ?> €</td>
+                <td>
+                    <a class="removeProduct" href="<?= $requestUrl ?>/cart?action=remove_product&product_id=<?= $product['id'] ?>"
+                       title="enlever du panier">
+                        <i class="fa fa-remove"></i
+                    </a>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+    <?php else: ?>
+        <tr>
+            <td colspan="5">Vous n'avez aucun produit dans votre panier</td>
+        </tr>
+    <?php endif ?>
+    </tbody>
+</table>
+<p>
+    <a class="btn" href="<?= $requestUrl ?>/cart?action=clear_cart" title="Vider le panier">
+        Vider le panier
+    </a>
+
+    <!-- si le panier est vide, on empèche d'accèder à la page suivante -->
+    <a class="btn" href="<?= $requestUrl ?>/cart/address" title="Valider le panier"
+       <?php if (empty($cart)): ?>disabled <?php endif ?>
+        > Valider le panier
+    </a>
+
+</p>
+
+<script src="<?= $wwwUrl ?>/js/classes/Cart.class.js"></script>
+<script>
+    // DOMContentLoaded
+    $(function () {
+        let cart = new Cart();
+        cart.init();
+    })
+</script>
+</main>

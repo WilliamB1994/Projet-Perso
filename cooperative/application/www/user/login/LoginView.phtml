@@ -1,0 +1,24 @@
+<main class="container">
+    <section>
+        <form action="" class="generic-form" method="post">
+            <fieldset>
+                <legend>Identifiez vous</legend>
+                <ul>
+                    <li>
+                        <label for="email">E-mail</label>
+                        <input type="text" name="email" id="email">
+                    </li>
+                    <li>
+                        <label for="password">Mot de passe</label>
+                        <input type="password" name="password" id="password">
+                    </li>
+                    <li>
+                        <label></label>
+                        <button type="submit" class="btn" name="login">Connexion</button>
+                    </li>
+                </ul>
+            </fieldset>
+            <a class="btn"  href="<?= $requestUrl ?>/user/register">Créer un compte</a>
+        </form>
+    </section>
+</main>

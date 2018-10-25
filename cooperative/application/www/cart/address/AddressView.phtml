@@ -1,0 +1,48 @@
+<form class="generic-form" method="post">
+    <fieldset>
+        <legend>Confirmez votre adresse</legend>
+        <aside class="error-message hidden">
+            <?php if ($flashBag->hasMessages()): ?>
+                <ul>
+                    <?php foreach ($flashBag->fetchMessages() as $message): ?>
+                        <li><?= $message ?></li>
+                    <?php endforeach; ?>
+                </ul>
+            <?php endif ?>
+        </aside>
+        <ul>
+            <li>
+                <label for="addressLine1">Addresse 1</label>
+                <input id="addressLine1" type="text" name="addressLine1" value="<?= $addressLine1 ?>" data-required
+                       data-name="addresse ligne 1">
+            </li>
+            <li>
+                <label for="addressLine2">Addresse 2</label>
+                <input id="addressLine2" type="text" name="addressLine2" value="<?= $addressLine2 ?>"
+                       data-name="addresse ligne 2">
+            </li>
+            <li>
+                <label for="city">Ville</label>
+                <input id="city" type="text" name="city" value="<?= $city ?>" data-required data-name="ville">
+            </li>
+            <li>
+                <label for="zipCode">Code Postal</label>
+                <input id="zipCode" type="text" name="zipCode" value="<?= $zipCode ?>" data-required
+                       data-name="code postal" data-type='positiveInteger' data-minlength="5" data-maxlength="5">
+            </li>
+            <li>
+                <label for="phone">Téléphone</label>
+                <input id="phone" type="text" name="phoneNumber" value="<?= $phoneNumber ?>" data-required
+                       data-name="téléphone"
+                       data-type='positiveInteger' data-minlength="10" data-maxlength="10">
+            </li>
+            <li>
+                <a href="<?= $requestUrl ?>/cart" class="button button-cancel" title="retour au panier">Retour au
+                    panier</a>
+                <button class="button-primary button float-right" name="add_address" type="submit">>> Paiement</button>
+            </li>
+        </ul>
+    </fieldset>
+</form>
+
+<script src="<?= $wwwUrl ?>/js/classes/FormValidator.class.js"></script>

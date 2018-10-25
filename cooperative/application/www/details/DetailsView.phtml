@@ -1,0 +1,47 @@
+	<!--MAIN CONTENT-->
+		<main class="container">
+			<section id="product">
+				<section id="product-detail">
+					<div id="product-name">
+
+						<h1><?= $product['title'] ?></h1>
+						<p>Ref : <?= $product['ref'] ?></p>
+					</div>
+					<div id="rating">
+						<i class="gold fa fa-star" aria-hidden="true"></i>
+						<i class="gold fa fa-star" aria-hidden="true"></i>
+						<i class="gold fa fa-star" aria-hidden="true"></i>
+						<i class="gold fa fa-star" aria-hidden="true"></i>
+						<i class="fa fa-star" aria-hidden="true"></i>
+						<a href="#">Voir les 56 avis clients</a>
+					</div>
+				</section>
+				<section id="product-quantity">
+
+					<?php $img_url = WWW_PATH . "/img/product/" . $product['pictureUrl']; ?>
+
+							<!-- choix du nom de la photo // $variable = test ? value_true : value_false  -->
+							<?php $img_name = is_file($img_url) ? $product['pictureUrl'] : 'no-photo.png' ?>
+
+							<img src="<?= $wwwUrl ?>/img/product/<?= $img_name ?>" alt="<?= $product['title'] ?>">
+
+					<div class="price">
+						<select name="quantity">
+							<option>Pochette de 100gr</option>
+							<option>Pochette de 500gr</option>
+							<option>Pochette de 1kg</option>
+						</select>
+						<h3><?= $product['price'] ?> €</h3>
+						<?php if ($userSession->isLogged()): ?>
+						<a class="btn" href="<?= $requestUrl ?>/cart?action=increase_quantity&product_id=<?= $product['id'] ?>">Ajouter au panier</a>
+						<?php endif ?>
+						<a id="wishlist" href="#">Ajouter à ma liste d'envie</a>
+					</div>
+				</section>
+				<section id="product-description">
+					<p><?= $product['description'] ?></p>
+
+				</section>
+			</section>
+		</main>
+		<!--FOOTER-->

@@ -1,0 +1,45 @@
+	<!--MAIN CONTENT-->
+	<main class="container">
+		
+		<?php foreach ($categorys as $category): ?>
+			<section class="prdctcategorie">
+
+				<!-- création de l'url du fichier -->
+				<?php $img_url = WWW_PATH . "/img/category/" . $category['pictureUrl']; ?>
+
+				<!-- choix du nom de la photo // $variable = test ? value_true : value_false  -->
+				<?php $img_name = is_file($img_url) ? $category['pictureUrl'] : 'no-photo.png' ?>
+
+				<img src="<?= $wwwUrl ?>/img/category/<?= $img_name ?>" alt="<?= $category['name'] ?>">
+
+				<h2><?= $category['name'] ?></h2>
+
+				<p class="clear"><?= $category['contents'] ?></p>
+				<section class="listing-product">
+
+					<?php foreach ($products as $product): ?>
+
+						<article>
+							<h3><?= $product['title'] ?></h3>
+							<!-- création de l'url du fichier -->
+							<?php $img_url = WWW_PATH . "/img/product/" . $product['pictureUrl']; ?>
+
+							<!-- choix du nom de la photo // $variable = test ? value_true : value_false  -->
+							<?php $img_name = is_file($img_url) ? $product['pictureUrl'] : 'no-photo.png' ?>
+
+							<img src="<?= $wwwUrl ?>/img/product/<?= $img_name ?>" alt="<?= $product['title'] ?>">
+
+							<section class="price">
+								<p>À partir de <strong><?= $product['price'] ?> €</strong></p>
+							</section>
+							<a class="btn" href="Details?id=<?=$product['id']; ?>">Voir ce produit</a>
+
+						</article>		
+
+					<?php endforeach; ?>
+				</section>
+			</section>	
+		<?php endforeach; ?>
+
+	</main>
+		<!--FOOTER-->

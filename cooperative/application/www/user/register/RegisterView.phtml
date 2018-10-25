@@ -1,0 +1,84 @@
+<main class="container">
+<form class="generic-form" method="post">
+    <fieldset>
+        <legend>Formulaire d'inscription</legend>
+        <aside class="error-message hidden">
+            <?php if ($flashBag->hasMessages()): ?>
+                <ul>
+                    <?php foreach ($flashBag->fetchMessages() as $message): ?>
+                        <li><?= $message ?></li>
+                    <?php endforeach; ?>
+                </ul>
+            <?php endif ?>
+        </aside>
+        <ul>
+            <li>
+                <label>civilité</label>
+                <label><input type="radio" name="title" value="0" required>Mme.</label>
+                <label><input type="radio" name="title" value="1" checked>M.</label>
+            </li>
+            <li>
+                <label class="required" for="firstName">Prénom</label>
+                <input type="text" id="firstName" name="firstName" value="<?= $firstName ?>" data-name="Prénom"
+                       data-type="string" data-required>
+            </li>
+            <li>
+                <label class="required" for="lastName">Nom</label>
+                <input type="text" id="lastName" name="lastName" value="<?= $lastName ?>" data-name="Nom"
+                       data-type="string" data-required>
+            </li>
+            <li>
+                <label class="required" for="email">E-mail</label>
+                <input type="text" id="email" name="email" value="<?= $email ?>" data-name="email" data-required
+                       data-type="email">
+            </li>
+            <li>
+                <label class="required" for="password">Mot de passe</label>
+                <input type="password" id="password" name="password" value="<?= $password ?>" data-name="mot de passe"
+                       data-type="password">
+            </li>
+            <li>
+                <label for="year">Date de naissance</label>
+                <select id="year" name="year">
+                    <?php for ($loopYear = date('Y'); $loopYear > date('Y') - 100; $loopYear--): ?>
+                        <!-- préselection du la valeur -->
+                        <?php $selected = ($loopYear == $year) ? 'selected' : '' ?>
+
+                        <option value="<?= $loopYear ?>" <?= $selected ?> ><?= $loopYear ?></option>
+                    <?php endfor; ?>
+                </select>
+                <select name="month">
+                    <?php for ($loopMonth = 1; $loopMonth <= 12; $loopMonth++): ?>
+
+                        <!-- ajout d'un 0 au début des mois < 10 -->
+                        <?php $loopMonth = $loopMonth < 10 ? '0' . $loopMonth : $loopMonth ?>
+
+                        <!-- préselection du la valeur -->
+                        <?php $selected = ($loopMonth == $month) ? 'selected' : '' ?>
+
+                        <option value="<?= $loopMonth ?>" <?= $selected ?>><?= $loopMonth ?></option>
+                    <?php endfor; ?>
+                </select>
+                <select name="day">
+                    <?php for ($loopDay = 1; $loopDay <= 31; $loopDay++): ?>
+
+                        <!-- ajout d'un 0 au début des jours < 10 -->
+                        <?php $loopDay = $loopDay < 10 ? '0' . $loopDay : $loopDay ?>
+
+                        <!-- préselection du la valeur -->
+                        <?php $selected = ($loopDay == $day) ? 'selected' : '' ?>
+
+                        <option value="<?= $loopDay ?>" <?= $selected ?>><?= $loopDay ?></option>
+                    <?php endfor; ?>
+                </select>
+            </li>
+            <li>
+                <label></label>
+                <button class="btn" type="submit" name="register_user">Inscription</button>
+            </li>
+        </ul>
+    </fieldset>
+</form>
+
+<script src="<?= $wwwUrl ?>/js/classes/FormValidator.class.js"></script>
+</main>

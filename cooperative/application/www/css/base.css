@@ -1,0 +1,25 @@
+.clear::after {
+	clear: both;
+	content: ".";
+	display: block;
+	height: 0;
+	line-height: 0;
+	visibility: hidden;
+}
+
+.left {float: left;}
+.right {float: right;}
+.center {
+	margin: 0 auto;
+	text-align: center;
+}
+
+.hidden {display: none;}
+
+.bold {font-weight: bold;}
+
+/* BUTTON */
+.btn {display: inline-block;}
+.small-btn {padding: 5px 10px}
+.regular-btn {padding: 10px 15px}
+.big-btn {padding: 20px 25px}
