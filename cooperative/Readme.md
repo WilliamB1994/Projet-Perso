@@ -1,4 +1,4 @@
-#Coopérative des petits glaneurs.
+###Coopérative des petits glaneurs.
 
 #Présentation du projet
 
